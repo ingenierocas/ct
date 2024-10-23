@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PSC - Plataforma de Servicios Compartidos</title>
+
+  <!-- Bootstrap CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link 
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.css" 
+    rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">  
+
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- Header fijo -->
+  <header class="header fixed-top bg-primary text-white p-2">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <div>
+        <h3 class="m-0">PSC</h3>
+      </div>
+      <div class="d-none d-md-flex align-items-center gap-3">
+        <span><i class="bi bi-person-circle"></i> Usuario: Carlos Andrés Sierra</span>
+        <a href="#" class="text-white text-decoration-none"><i class="bi bi-house"></i> Inicio</a>
+        <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-door-open"></i> Cerrar sesión</a>
+      </div>
+      <button class="navbar-toggler d-md-none" type="button" 
+              data-bs-toggle="collapse" 
+              data-bs-target="#navbarResponsive">
+        <i id="menu-icon" class="bi bi-list"></i>
+      </button>
+      <div class="collapse d-md-none" id="navbarResponsive">
+        <ul class="navbar-nav mt-2">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#"><i class="bi bi-person-circle"></i> Usuario: Carlos Andrés Sierra</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#"><i class="bi bi-house"></i> Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#"><i class="bi bi-door-open"></i> Cerrar sesión</a>
+          </li>
+          <li class="nav-item text-white">
+            MENU
+          </li>          
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#"><i class="bi bi-aspect-ratio"></i> Presentación comités </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#"><i class="bi bi-clipboard-data"></i> Informes de control</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#"><i class="bi bi-bank"></i> Novasoft</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#"><i class="bi bi-people"></i> Clientes nuevos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#"><i class="bi bi-book"></i> Informe productividad</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#"><i class="bi bi-flag-fill"></i> Indemnizaciones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#"><i class="bi bi-collection"></i> Costo financieros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#"><i class="bi bi-front"></i> Presupuesto</a>
+          </li>                                    
+      </ul>
+      </div>
+
+    </div>
+
+  </header> 
+
+  <!-- Banner con texto centrado -->
+  <div class="banner">
+    <h1>Plataforma de Servicios Compartidos</h1>
+  </div>
+
+  <div class="d-flex" >
+    <nav id="sidebar" class="bg-light border-end">
+
+      <ul class="list-unstyled components p-2">
+        <li>
+          <div class="menu-item" id="sidebarCollapse">
+            <i class="bi bi-arrow-left-right"></i> 
+            <span class="menu-text">Ocultar menu</span>
+          </div>
+        </li>
+        <li>
+
+          <div class="menu-item" data-bs-toggle="collapse" data-bs-target="#presupuestosMenu">
+            <i class="bi bi-aspect-ratio" title="Presentación comités"></i> 
+            <span class="menu-text">Presentación comités</span>
+          </div>
+
+          <ul class="collapse submenu" id="presupuestosMenu">
+            <li>
+              <a href="#" data-bs-toggle="collapse" data-bs-target="#submenuNivel3-1"><i class="bi bi-folder-check"></i> Submenú 1</a>
+              <ul class="collapse submenu-nivel-3" id="submenuNivel3-1">
+                <li><i class="bi bi-filter-square"></i> <a href="#">Tercer nivel 1</a></li>
+                <li><i class="bi bi-filter-square"></i> <a href="#">Tercer nivel 2</a></li>
+              </ul>
+            </li>
+            <li><a href="#"><i class="bi bi-folder-check"></i> Submenú 2</a></li>
+          </ul>
+
+
+          <ul class="dropdown-menu submenu-v">
+            <li><a href="#" class="dropdown-item"><i class="bi bi-folder-check"></i> Submenú 1</a></li>
+            <li>
+              <a href="#" class="dropdown-item" data-bs-toggle="dropdown"><i class="bi bi-folder-check"></i> Submenú 2</a>
+              <ul class="dropdown-menu submenu-nivel-3-v" style="padding-left: 5px;">
+                <li><a href="#" class="dropdown-item"><i class="bi bi-filter-square"></i> Tercer nivel 1</a></li>
+                <li><a href="#" class="dropdown-item"><i class="bi bi-filter-square"></i> Tercer nivel 2</a></li>
+              </ul>
+            </li>
+          </ul>
+
+
+          <ul class="dropdown-menu submenu-v">
+            <li><a href="#" class="dropdown-item">Submenú 1</a></li>
+            <li>
+              <a href="#" class="dropdown-item" data-bs-toggle="dropdown"><i class="bi bi-folder-check"></i><i class="bi bi-folder-check"></i> Submenú 2</a>
+              <ul class="dropdown-menu submenu-nivel-3-v">
+                <li><i class="bi bi-filter-square"></i> <a href="#" class="dropdown-item">Tercer nivel 1</a></li>
+                <li><i class="bi bi-filter-square"></i> <a href="#" class="dropdown-item">Tercer nivel 2</a></li>
+              </ul>
+            </li>
+          </ul>          
+
+
+        </li>
+        <li>
+          <div class="menu-item"  data-bs-toggle="collapse" data-bs-target="#informesMenu"> 
+            <i class="bi bi-clipboard-data"  title="Informes de control"></i> 
+            <span class="menu-text">Informes de control</span>
+          </div>
+
+          <ul class="collapse submenu" id="informesMenu">
+            <li><a href="#"><i class="bi bi-folder-check"></i> Informe 1</a></li>
+            <li><a href="#"><i class="bi bi-folder-check"></i> Informe 2</a></li>
+          </ul>
+          
+          <ul class="dropdown-menu submenu-v">
+            <li><a href="#" class="dropdown-item"><i class="bi bi-folder-check"></i> Informe 1</a></li>
+            <li><a href="#" class="dropdown-item"><i class="bi bi-folder-check"></i> Informe 2</a></li>
+          </ul>
+        </li>
+        <li>
+          <div class="menu-item" data-bs-toggle="collapse" >
+            <i class="bi bi-bank" title="Novasoft"></i> 
+            <span class="menu-text">Novasoft</span>
+          </div>
+        </li> 
+        <li>
+          <div class="menu-item" data-bs-toggle="collapse" >
+            <i class="bi bi-people" title="Clientes nuevos"></i> 
+            <span class="menu-text">Clientes nuevos</span>
+          </div>
+        </li> 
+        <li>
+          <div class="menu-item" data-bs-toggle="collapse" >
+            <i class="bi bi-book" title="Informe productividad"></i> 
+            <span class="menu-text">Informe productividad</span>
+          </div>
+        </li> 
+        <li>
+          <div class="menu-item" data-bs-toggle="collapse" >
+            <i class="bi bi-flag-fill" title="Indemnizaciones"></i> 
+            <span class="menu-text">Indemnizaciones</span>
+          </div>
+        </li>  
+        <li>
+          <div class="menu-item" data-bs-toggle="collapse" >
+            <i class="bi bi-collection" title="Costo financieros"></i> 
+            <span class="menu-text">Costo financieros</span>
+          </div>
+        </li>
+        <li>
+          <div class="menu-item" data-bs-toggle="collapse" >
+            <i class="bi bi-front" title="Presupuesto"></i> 
+            <span class="menu-text">Presupuesto</span>
+          </div>
+        </li>                                                
+      </ul>
+    </nav>
+
+    
+    <div id="main" class="content flex-grow-1 p-4">
+
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+          <li class="breadcrumb-item"><a href="#">Presupuestos</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Variables Comerciales</li>
+        </ol>
+      </nav>
+
+
+      <h2>PRESUPUESTOS - VARIABLES COMERCIALES</h2>
+    
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" 
+                    aria-expanded="false" aria-controls="collapseOne">
+              1- SELECCION LÍNEA
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" 
+               data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+
+
+
+                    <div class="form-container">
+                      <form id="form-generar">
+                          <div class="row mb-3">
+                              <div class="col-md-4">
+                                  <label for="select1" class="form-label">Año</label>
+                                  <select id="select1" class="form-select">
+                                      <option value="" selected>Seleccione una opción</option>
+                                      <option value="1">2024</option>
+                                      <option value="2">2023</option>
+                                      <option value="3">2022</option>
+                                  </select>
+                              </div>
+
+                              <div class="col-md-4">
+                                  <label for="select2" class="form-label">Linea</label>
+                                  <select id="select2" class="form-select">
+                                      <option value="" selected>Seleccione una opción</option>
+                                      <option value="A">Renault</option>
+                                      <option value="B">Mazda</option>
+                                      <option value="C">Audi</option>
+                                  </select>
+                              </div>
+
+                              <div class="col-md-4">
+                                  <label for="select3" class="form-label">Presupuesto</label>
+                                  <select id="select3" class="form-select">
+                                      <option value="" selected>Seleccione una opción</option>
+                                      <option value="X">Base</option>
+                                      <option value="Y">Parcial</option>
+                                      <option value="Z">Total</option>
+                                  </select>
+                              </div>
+                          </div>
+
+                          <button type="submit" class="btn btn-primary btn-generar">
+                              Generar <i class="bi bi-search"></i>
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="container-fluid vertical-tabs">
+                    <!-- Pestañas a la izquierda/es horizontal en móviles -->
+                    <ul class="nav nav-pills me-3" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="tab1" data-bs-toggle="pill" data-bs-target="#content1"
+                                    type="button" role="tab" aria-controls="content1" aria-selected="true">
+                                Vehículos nuevos
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="tab2" data-bs-toggle="pill" data-bs-target="#content2"
+                                    type="button" role="tab" aria-controls="content2" aria-selected="false">
+                                Vehículos usados
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="tab3" data-bs-toggle="pill" data-bs-target="#content3"
+                                    type="button" role="tab" aria-controls="content3" aria-selected="false">
+                                Repuestos
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="tab4" data-bs-toggle="pill" data-bs-target="#content4"
+                                    type="button" role="tab" aria-controls="content4" aria-selected="false">
+                                Servicios
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="tab5" data-bs-toggle="pill" data-bs-target="#content5"
+                                    type="button" role="tab" aria-controls="content5" aria-selected="false">
+                                Variables Macro y P&G
+                            </button>
+                        </li>
+                    </ul>
+                
+                    <!-- Contenido a la derecha -->
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="content1" role="tabpanel" aria-labelledby="tab1">
+
+
+                          <div class="container">
+                            <div class="row">
+                                <div class="col-6 label-right">
+                                    <label for="campo1">TOTAL INDUSTRIA: </label>
+                                </div>
+                                <div class="col-6 input-left">
+                                    <input type="text" class="form-control" id="campo1" placeholder="Ingresa valor">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 label-right">
+                                    <label for="campo2">% PARTICIPACION: </label>
+                                </div>
+                                <div class="col-6 input-left">
+                                    <input type="text" class="form-control" id="campo2" placeholder="Ingresa valor">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 label-right">
+                                    <label for="campo3">% PESO COMERCIAL: </label>
+                                </div>
+                                <div class="col-6 input-left">
+                                    <input type="text" class="form-control" id="campo3" placeholder="Ingresa valor">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 label-right">
+                                    <label for="campo4">% MARGEN NUEVOS: </label>
+                                </div>
+                                <div class="col-6 input-left">
+                                    <input type="text" class="form-control" id="campo4" placeholder="Ingresa valor">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 label-right">
+                                    <label for="campo5">UNIDADES FABRICA: </label>
+                                </div>
+                                <div class="col-6 input-left">
+                                    <input type="text" class="form-control" id="campo5" placeholder="Ingresa valor">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 label-right">
+                                    <label for="campo6">UNIDADES COMPAÑIA: </label>
+                                </div>
+                                <div class="col-6 input-left">
+                                    <input type="text" class="form-control" id="campo6" placeholder="Ingresa valor">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center mt-3">
+                                    <button type="submit" class="btn btn-primary" style="width:50%;">
+                                        Guardar <i class="bi bi-save"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>                        
+
+
+                        </div>
+                        <div class="tab-pane fade" id="content2" role="tabpanel" aria-labelledby="tab2">
+                            <h3>En desarrollo...</h3>
+                        </div>
+                        <div class="tab-pane fade" id="content3" role="tabpanel" aria-labelledby="tab3">
+                            <h3>En desarrollo...</h3>
+                        </div>
+                        <div class="tab-pane fade" id="content4" role="tabpanel" aria-labelledby="tab4">
+                            <h3>En desarrollo...</h3>
+                        </div>
+                        <div class="tab-pane fade" id="content5" role="tabpanel" aria-labelledby="tab5">
+                            <h3>En desarrollo...</h3>
+                        </div>
+                    </div>
+                </div> 
+                
+                
+                <div class="table-responsive mt-4">
+                  <table class="table table-bordered">
+                    <thead class="table-light">
+                      <tr>
+                        <th>CENTRO</th>
+                        <th>% PARTICIPACION</th>
+                        <th>Q AÑO</th>
+                        <th>Q MES</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>RN-Bta-P Aranda</td>
+                        <td><input type="text" class="form-control" value="35,00"></td>
+                        <td><input type="text" class="form-control" value="1.390"></td>
+                        <td><input type="text" class="form-control" value="116"></td>
+                      </tr>
+                      <tr>
+                        <td>RN-Bta-San Fernando</td>
+                        <td><input type="text" class="form-control" value="35,00"></td>
+                        <td><input type="text" class="form-control" value="1.390"></td>
+                        <td><input type="text" class="form-control" value="116"></td>
+                      </tr>
+                      <tr>
+                        <td>RN-Bta Ciudad Cali</td>
+                        <td><input type="text" class="form-control" value="35,00"></td>
+                        <td><input type="text" class="form-control" value="1.390"></td>
+                        <td><input type="text" class="form-control" value="116"></td>
+                      </tr>
+                      <tr>
+                        <td>RN-Bta Villavo Torres</td>
+                        <td><input type="text" class="form-control" value="35,00"></td>
+                        <td><input type="text" class="form-control" value="1.390"></td>
+                        <td><input type="text" class="form-control" value="116"></td>
+                      </tr>                                            
+                    </tbody>
+                  </table>
+                </div>
+
+
+            </div>
+          </div>
+        </div>
+    
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              2- LISTA DE VEHICULOS
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" 
+               data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+
+
+ 
+
+              <button type="submit" class="btn btn-primary" style="width:50%;">
+                Adicionar <i class="bi bi-plus"></i>
+              </button>
+
+              <div class="table-responsive mt-4">
+                <table class="table table-bordered table-striped">
+                  <thead class="table-light">
+                    <tr class="text-center">
+                      <th>Marca</th>
+                      <th>Componente</th>
+                      <th>Valor</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="text-center">
+                      <td>Alaskan</td>
+                      <td>Alaska (Diesel)</td>
+                      <td><input type="text" class="form-control" value="35,00"></td>
+                      <td>
+                        <a href="#" class="d-inline-block bg-success text-white p-1 text-decoration-none rounded" 
+                          data-bs-toggle="modal" data-bs-target="#infoModal">
+                          <i class="bi bi-zoom-in"></i>
+                          <span class="link-text ms-1">Ver más</span>
+                        </a>
+
+                      </td>
+                      <td>
+                        <a href="#" class="d-inline-block bg-info text-white p-1 text-decoration-none rounded">
+                          <i class="bi bi-pencil"></i>
+                          <span class="link-text ms-1">Actualizar</span>
+                        </a>
+                      </td>
+                      <td>
+                        <a href="#" class="d-inline-block bg-danger text-white p-1 text-decoration-none rounded">
+                          <i class="bi bi-x-circle"></i>
+                          <span class="link-text ms-1">Borrar</span>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr class="text-center">
+                      <td>Alaskan</td>
+                      <td>Alaska (Diesel)</td>
+                      <td><input type="text" class="form-control" value="35,00"></td>
+                      <td>
+                        <a href="#" class="d-inline-block bg-success text-white p-1 text-decoration-none rounded" 
+                          data-bs-toggle="modal" data-bs-target="#infoModal">
+                          <i class="bi bi-zoom-in"></i>
+                          <span class="link-text ms-1">Ver más</span>
+                        </a>
+                      </td>
+                      <td>
+                        <a href="#" class="d-inline-block bg-info text-white p-1 text-decoration-none rounded">
+                          <i class="bi bi-pencil"></i>
+                          <span class="link-text ms-1">Actualizar</span>
+                        </a>
+                      </td>
+                      <td>
+                        <a href="#" class="d-inline-block bg-danger text-white p-1 text-decoration-none rounded">
+                          <i class="bi bi-x-circle"></i>
+                          <span class="link-text ms-1">Borrar</span>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr class="text-center">
+                      <td>Alaskan</td>
+                      <td>Alaska (Diesel)</td>
+                      <td><input type="text" class="form-control" value="35,00"></td>
+                      <td>
+                        <a href="#" class="d-inline-block bg-success text-white p-1 text-decoration-none rounded" 
+                          data-bs-toggle="modal" data-bs-target="#infoModal">
+                          <i class="bi bi-zoom-in"></i>
+                          <span class="link-text ms-1">Ver más</span>
+                        </a>
+                      </td>
+                      <td>
+                        <a href="#" class="d-inline-block bg-info text-white p-1 text-decoration-none rounded">
+                          <i class="bi bi-pencil"></i>
+                          <span class="link-text ms-1">Actualizar</span>
+                        </a>
+                      </td>
+                      <td>
+                        <a href="#" class="d-inline-block bg-danger text-white p-1 text-decoration-none rounded">
+                          <i class="bi bi-x-circle"></i>
+                          <span class="link-text ms-1">Borrar</span>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr class="text-center">
+                      <td>Alaskan</td>
+                      <td>Alaska (Diesel)</td>
+                      <td><input type="text" class="form-control" value="35,00"></td>
+                      <td>
+                        <a href="#" class="d-inline-block bg-success text-white p-1 text-decoration-none rounded" 
+                          data-bs-toggle="modal" data-bs-target="#infoModal">
+                          <i class="bi bi-zoom-in"></i>
+                          <span class="link-text ms-1">Ver más</span>
+                        </a>
+                      </td>
+                      <td>
+                        <a href="#" class="d-inline-block bg-info text-white p-1 text-decoration-none rounded">
+                          <i class="bi bi-pencil"></i>
+                          <span class="link-text ms-1">Actualizar</span>
+                        </a>
+                      </td>
+                      <td>
+                        <a href="#" class="d-inline-block bg-danger text-white p-1 text-decoration-none rounded">
+                          <i class="bi bi-x-circle"></i>
+                          <span class="link-text ms-1">Borrar</span>
+                        </a>
+                      </td>
+                    </tr>                                                            
+                    <!-- Más filas aquí -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              3- INFORMACION CENTRO
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" 
+               data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <label for="selectt" class="form-label">CENTRO</label>
+              <select id="selectt" class="form-select">
+                  <option value="" selected>Seleccionar...</option>
+                  <option value="1">Norte</option>
+                  <option value="2">Oeste</option>
+                  <option value="3">Sur</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    </div>   
+  </div>
+
+  <footer class="footer mt-auto bg-info text-white text-center p-2">
+    <p>© 2024 - Casatoro - PSC - Plataforma de Servicios Compartidos<br>
+        Maquetado por: Carlos Andrés Sierra</p>
+  </footer> 
+
+                                <div class="modal fade" id="infoModal" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title">Información Detallada</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <table class="table table-striped">
+                                        <tbody>
+                                          <tr>
+                                            <td>Categoria 1</td>
+                                            <td>Informacion 1</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Categoria 2</td>
+                                            <td>Informacion 2</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Categoria 3</td>
+                                            <td>Informacion 3</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Categoria 4</td>
+                                            <td>Informacion 4</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Categoria 5</td>
+                                            <td>Informacion 5</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Categoria 6</td>
+                                            <td>Informacion 6</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Categoria 7</td>
+                                            <td>Informacion 7</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Categoria 8</td>
+                                            <td>Informacion 8</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Categoria 9</td>
+                                            <td>Informacion 9</td>
+                                          </tr> 
+                                          <tr>
+                                            <td>Categoria 10</td>
+                                            <td>Informacion 10</td>
+                                          </tr> 
+                                          <tr>
+                                            <td>Categoria 11</td>
+                                            <td>Informacion 11</td>
+                                          </tr> 
+                                          <tr>
+                                            <td>Categoria 12</td>
+                                            <td>Informacion 12</td>
+                                          </tr>                                                                                                                                                                                                                                                                                               
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-danger close-btn" data-bs-dismiss="modal">
+                                        Cerrar
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/script.js"></script>
+
+</body>
+</html>

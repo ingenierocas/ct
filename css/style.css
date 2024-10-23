@@ -1,0 +1,307 @@
+body {
+    background-color: #f8f9fa; /* Fondo claro */
+    color: #343a40; /* Color de texto oscuro */
+}
+
+.header{
+  z-index: 10000;
+}
+
+/* Banner de fondo completo */
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30vh; /* Ocupa toda la altura visible */
+  background-image: url('https://s1.1zoom.me/b5050/588/Lamborghini_2018_SC18_Alston_Back_view_577560_1920x1080.jpg');
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+  margin-top: 20px; /* Ajusta por el header fijo */
+}
+
+/* Estilo del texto centrado */
+.banner h1 {
+  font-size: 3rem;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
+
+/* Adaptaciones para móviles */
+@media (max-width: 768px) {
+  .banner h1 {
+    font-size: 2rem;
+  }
+}
+
+
+/* Estilo del sidebar */
+#sidebar {
+  width: 250px;
+  min-height: 62vh;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+#sidebar.collapsed {
+  width: 80px;
+}
+
+#sidebar.collapsed .menu-text {
+  display: none;
+}
+
+#sidebar.collapsed .submenu {
+  display: none;
+  position: absolute;
+  left: 80px;
+  top: 0;
+  min-width: 200px;
+  background-color: #f8f9fa;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1050;
+}
+
+
+    /* Estilo para el submenú */
+    .dropdown-menu-m {
+        display: none;
+        position: absolute;
+        left: 100%; /* Submenú al costado */
+        top: 0;
+    }
+
+    /* Alinear los submenús de forma vertical */
+    .dropdown-submenu-m {
+        position: relative;
+    }
+
+    /* Asegurar que el contenedor del menú esté alineado verticalmente */
+    .menu-vertical {
+        width: 250px;
+    }
+
+    .dropdown-submenu-m:hover > .dropdown-menu-m {
+        display: block; /* Mostrar al pasar el ratón */
+    }
+    .dropdown-submenu-m {
+        margin-bottom: 5px;
+    }
+
+    /* Ocultar los íconos de flecha del collapse de Bootstrap */
+    .dropdown-submenu-m a::after {
+        content: '';
+    }
+
+
+
+/* Título del menú que se mostrará al pasar el cursor */
+
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu-item:hover {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.menu-item:hover .menu-title {
+  opacity: 1; /* Mostrar al hacer hover */
+  left: 50%; /* Colocado justo al lado del ícono */
+  margin-left: 10px; /* Espacio entre ícono y texto */
+}
+
+.submenu{
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.submenu a{
+  text-decoration: none;
+  color: #343a40;
+}
+
+
+.submenu, .submenu-nivel-3 {
+  padding-left: 30px;
+  list-style-type: none;
+}
+
+.submenu.collapse:not(.show),
+.submenu-nivel-3.collapse:not(.show) {
+  display: none;
+}
+
+
+#main{
+  z-index: 0;
+}
+
+
+.submenu-nivel-3-v {
+  display: none;
+  padding-left: 40px;
+}
+
+
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+#navbarResponsive {
+  position: absolute;
+  top: 42px;
+  right: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 255, 0.8);
+  z-index: 1040;
+}
+
+#navbarResponsive ul {
+  text-align: end;
+  padding-right: 15px;
+}
+
+
+  /* Contenedor para escritorio (vertical) */
+  .vertical-tabs {
+      display: flex;
+      height: auto;
+  }
+
+  /* Pestañas verticales para pantallas grandes */
+  .nav-pills {
+      flex-direction: column;
+      width: 200px;
+  }
+
+  /* Contenido de las pestañas */
+  .tab-content {
+      flex-grow: 1;
+      padding: 20px;
+      background-color: white;
+      border-left: 1px solid #ddd;
+  }
+
+  /* Estilo para pestaña activa */
+  .nav-link.active {
+      background-color: #0d6efd;
+      color: white;
+  }
+
+  /* Ajuste a horizontal para móviles */
+  @media (max-width: 768px) {
+      .vertical-tabs {
+          flex-direction: column;
+          height: auto;
+      }
+      .nav-pills {
+          flex-direction: row;
+          width: 100%;
+          overflow-x: auto;
+      }
+      .nav-item {
+          flex-grow: 1;
+          text-align: center;
+      }
+      .tab-content {
+          border-left: none;
+      }
+  }
+
+
+
+    .form-container {
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+    .form-title {
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: bold;
+        color: #343a40;
+    }
+    .row > div {
+        padding: 0 10px; /* Espacio entre selectores */
+    }
+    @media (max-width: 768px) {
+        .row > div {
+            padding: 10px 0;
+        }
+    }
+    .btn-generar {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .btn-generar i {
+        margin-left: 8px;
+    }
+
+    /* CSS personalizado para alinear los labels y inputs */
+    .label-right {
+        text-align: right;
+        padding-right: 10px; /* Espacio a la derecha del label */
+    }
+
+    .input-left {
+        padding: 5px; /* Espacio interno del input */
+        margin-bottom: 5px;
+    }
+
+    .input-left input {
+      width: 70%;
+    }        
+
+    /* Oculta los textos de los enlaces en pantallas pequeñas */
+    @media (max-width: 767px) {
+      .link-text {
+        display: none;
+      }
+    }
+
+    /* Muestra los textos en pantallas medianas en adelante */
+    @media (min-width: 768px) {
+      .link-text {
+        display: inline;
+      }
+    }
+
+
+/* Estilos personalizados */
+.modal-header {
+  background-color: #343a40;
+  color: white;
+}
+.modal-body tr:nth-child(even) {
+  background-color: #f8f9fa; /* Gris claro */
+}
+.modal-body tr:nth-child(odd) {
+  background-color: white;
+}
+.close-btn {
+  width: 100%; /* Botón grande */
+  font-size: 1.2rem;
+}
+
+.modal-backdrop {
+  /*display: none !important;*/
+}
+
+/* Opcional: Ajusta la transparencia del fondo */
+.modal-backdrop.show {
+  opacity: 0.5; 
+}
