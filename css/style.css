@@ -1,8 +1,12 @@
+/*Autor: Carlos Andres Sierra*/
 body {
     background-color: #f8f9fa; /* Fondo claro */
     color: #343a40; /* Color de texto oscuro */
+
+    margin:0;
 }
 
+/*Cabecera*/
 .header{
   z-index: 10000;
 }
@@ -28,20 +32,23 @@ body {
   text-align: center;
 }
 
-/* Adaptaciones para móviles */
+/* Adaptaciones para móviles para el caso del banner*/
 @media (max-width: 768px) {
   .banner h1 {
     font-size: 2rem;
   }
 }
 
-
-/* Estilo del sidebar */
+/* Estilo del menu izquierdo */
 #sidebar {
   width: 250px;
-  min-height: 62vh;
+  min-height: 42vh;
+
+  
   transition: all 0.3s;
   overflow: hidden;
+
+  transition: transform 0.3s ease-in-out;
 }
 #sidebar.collapsed {
   width: 80px;
@@ -63,7 +70,7 @@ body {
 }
 
 
-    /* Estilo para el submenú */
+    /* Estilo para el submenú movil */
     .dropdown-menu-m {
         display: none;
         position: absolute;
@@ -93,10 +100,35 @@ body {
         content: '';
     }
 
-
+    #navbarResponsive {
+      position: absolute;
+      top: 42px;
+      right: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 255, 0.8);
+      z-index: 1040;
+    }
+    
+    #navbarResponsive ul {
+      text-align: end;
+      padding-right: 15px;
+    }
 
 /* Título del menú que se mostrará al pasar el cursor */
 
+/* Efecto hover para submenús */
+.submenu a:hover, .submenu-nivel-3 a:hover {
+  background-color:  rgba(0, 123, 255, 0.5); /* Cambia el color de fondo al pasar el mouse */
+  color: #fff; /* Cambia el color del texto */
+  padding: 2px;
+}
+
+/* Efecto hover para los menús de nivel 3 */
+.submenu-nivel-3 a:hover {
+  background-color: rgba(0, 123, 255, 0.5); /* Color de fondo al pasar el mouse */
+  color: #fff; /* Color del texto */
+  padding: 2px;
+}
 
 .menu-item {
   display: flex;
@@ -118,6 +150,7 @@ body {
   margin-left: 10px; /* Espacio entre ícono y texto */
 }
 
+/*Submenu del menu colapsado*/
 .submenu{
   list-style-type: none;
   padding-left: 20px;
@@ -140,10 +173,23 @@ body {
 }
 
 
-#main{
-  z-index: 0;
+/*Sumenu y menu de tercer nivel con menu colapsado*/
+.submenu-v {
+  position: absolute; /* Cambiar a fixed si quieres que se mantenga en el viewport */
+  z-index: 1050 !important; /* Un valor alto para que se superponga a otros elementos */
+  background-color: white; /* O el color que necesites */
+  padding: 10px; /* Opcional, para espacio interno */
+  display: none; /* Ocultar inicialmente, se mostrará con jQuery */
 }
 
+/* Asegúrate de que los elementos que aparecen dentro de submenu-v también tengan un alto z-index */
+.submenu-nivel-3-v {
+  position: absolute; 
+  z-index: 1060 !important; /* Más alto que submenu-v */
+  background-color: white; 
+  padding: 5px; 
+  display: none; 
+}
 
 .submenu-nivel-3-v {
   display: none;
@@ -151,25 +197,19 @@ body {
 }
 
 
+/*Columna derecha de los contenidos*/
+#main{
+  z-index: 0;
+}
+
+/* Pie de pagina*/
 .footer {
   position: relative;
   bottom: 0;
   width: 100%;
 }
 
-#navbarResponsive {
-  position: absolute;
-  top: 42px;
-  right: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 255, 0.8);
-  z-index: 1040;
-}
 
-#navbarResponsive ul {
-  text-align: end;
-  padding-right: 15px;
-}
 
 
   /* Contenedor para escritorio (vertical) */
@@ -219,7 +259,7 @@ body {
   }
 
 
-
+/*Estilo basico de un formulario*/
     .form-container {
         margin: 50px auto;
         padding: 30px;

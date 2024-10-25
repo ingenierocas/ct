@@ -1,18 +1,24 @@
+/* Autor Carlos Andres Sierra */
 $(document).ready(function () {
+
+    /*reabre de barra de menu*/
     function actualizarEstadoSidebar() {
       const sidebarColapsado = $('#sidebar').hasClass('collapsed');
 
     }
 
+    /*Cierre de barra de menu*/ 
     $('#sidebarCollapse').on('click', function () {
       $('#sidebar').toggleClass('collapsed');
       actualizarEstadoSidebar();
       
-      // Cambiar los valores de data-bs-toggle
+      // los menus abiertos con menus
       const nuevoValor = $('#sidebar').hasClass('collapsed') ? 'dropdown' : 'collapse';
       $('[data-bs-toggle]').attr('data-bs-toggle', nuevoValor);
     });
 
+
+    // Controla el hover de los menus y despliegue de los submenus
     $('#sidebar.collapsed .menu-item').hover(
       function () {
         $(this).find('.submenu').fadeIn();
@@ -23,6 +29,7 @@ $(document).ready(function () {
     );
 
 
+      //(des)oculta el menu izquierda si accede el movil
       function verificarTamañoPantalla() {
         if ($(window).width() < 768) {
           $('#sidebar').hide(); // Oculta el nav en pantallas móviles
@@ -36,6 +43,7 @@ $(document).ready(function () {
       verificarTamañoPantalla(); // Comprobación inicial
 
 
+      //Deshabilita los menus de tercer nivel
     $('.submenu-nivel-3').on('show.bs.collapse', function () {
       $('.submenu-nivel-3').not(this).collapse('hide');
     });
@@ -60,10 +68,12 @@ $(document).ready(function () {
       }
     });
 
+    //DEspues de hacer click en los links superiores se ocultan
     $('#navbarResponsive a').on('click', function () {
       $('#navbarResponsive').collapse('hide');
     });
 
+    //Mantiene los iconos sin importa si ocultan el menu
     $('#navbarResponsive').on('show.bs.collapse', function () {
       $('#menu-icon').removeClass('bi-list').addClass('bi-x');
     }).on('hide.bs.collapse', function () {
@@ -77,6 +87,7 @@ $(document).ready(function () {
           $(this).addClass('active');
       });
 
+     //Controla  validacion de un formulario derecho
     $('#form-generar').on('submit', function (e) {
               e.preventDefault(); // Evita el envío real del formulario
               const select1 = $('#select1').val();
@@ -95,14 +106,71 @@ $(document).ready(function () {
         $(this).find('.link-text').collapse('hide');
       });       
 
-    actualizarEstadoSidebar(); // Estado inicial
+      actualizarEstadoSidebar(); // Estado inicial del boton de (Des)ocultar menu
 
-
-    $('.dropdown-submenu-m > a').on('click', function (e) {
+        //Controla la visbilidad de los menus
+        $('.dropdown-submenu-m > a').on('click', function (e) {
               e.preventDefault(); // Evitar que se recargue la página
               $(this).next('.dropdown-menu-m').toggle(); // Mostrar/ocultar el submenú
               return false;
           });
+
+        /* Controla el desplazamiento vertical del menu que se sea siempre visible */
+          const $nav = $('#sidebar'); // Sidebar
+          const $footer = $('footer'); // Footer
+          const $window = $(window); // Ventana del navegador
+          const offsetTop = $nav.offset().top; // Posición inicial del nav
+          const navHeight = $nav.outerHeight(true); // Altura del nav
+          let hasScrolled = false; // Variable para controlar si se ha hecho scroll
+ 
+          
+          // Ajustar la altura del contenido principal para evitar espacios vacíos
+          function ajustarAlturaContenido() {
+            const footerHeight = $footer.outerHeight(true); // Altura del footer
+            const windowHeight = $window.height(); // Altura de la ventana
+            const headerHeight = $('header').outerHeight(true); // Altura del header
+          
+            // Calculamos la altura disponible para el contenido
+            const contenidoAltura = windowHeight - headerHeight - footerHeight;
+          
+            // Aplicamos la altura mínima al contenido principal (#main)
+            $('#main').css('min-height', `${contenidoAltura}px`);
+          }
+          
+          // Ejecutamos al cargar y redimensionar la ventana
+          ajustarAlturaContenido();
+          $window.on('resize', ajustarAlturaContenido);
+          
+          // Lógica para limitar el scroll más allá del footer
+          $window.on('scroll', function () {
+            const scrollTop = $window.scrollTop(); // Posición del scroll actual
+            const footerTop = $footer.offset().top; // Posición superior del footer
+            const documentHeight = $(document).height(); // Altura total del documento
+            const windowHeight = $window.height(); // Altura de la ventana
+          
+            // Calculamos el máximo scroll permitido (justo antes del footer)
+            const maxScroll = footerTop + $footer.outerHeight() - windowHeight;
+          
+            // Si el scroll supera el límite, lo bloqueamos
+            if (scrollTop >= maxScroll) {
+              $('html, body').scrollTop(maxScroll); // Fijamos el scroll en el límite
+            }
+          
+            // Lógica para mover el <nav> sin que supere el footer
+            let newPosition = Math.min(Math.max(offsetTop, scrollTop), footerTop - navHeight);
+            $nav.css('transform', `translateY(${newPosition - offsetTop}px)`);
+          
+            // Cambiar el padding-top del sidebar
+            if (scrollTop > 0 && !hasScrolled) {
+              $nav.css('padding-top', '50px'); // Cambiar el padding-top al hacer scroll
+              hasScrolled = true; // Marcar que se ha hecho scroll
+            } else if (scrollTop === 0 && hasScrolled) {
+              $nav.css('padding-top', '0px'); // Restaurar el padding-top al volver al top
+              hasScrolled = false; // Marcar que se ha vuelto al top
+            }
+          });
+
+
 
 
 
